@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Three.js Basic</title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				overflow: hidden;
+			}
+
+			canvas {
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="http://threejs.org/build/three.min.js"></script>
+		<script type="text/javascript">
+			var renderer = new THREE.WebGLRenderer();
+
+			renderer.setClearColor(0x0000ff);
+			renderer.setPixelRatio(window.devicePixelRatio);
+			renderer.setSize(window.innerWidth, window.innerHeight);
+
+			document.body.appendChild(renderer.domElement);
+
+			var camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 3000);
+
+			var scene = new THREE.Scene();
+
+			renderer.render(scene, camera);
+		</script>
+	</body>
+</html>
