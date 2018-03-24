@@ -16,11 +16,14 @@ scene.add(light);
 var light1 = new THREE.PointLight(0xffffff, 0.5);
 scene.add(light1);			
 
-var material = new THREE.MeshBasicMaterial({
+var material = new THREE.MeshNormalMaterial({
 	color: 0xff0000,
 	transparent: true,
 	opacity: 1,
-	wireframe: true
+	wireframe: true,
+	wireframeLinewidth: 5,
+	wireframeLinejoin: 'round',
+	wireframeLinecap: 'round'
 });
 
 var geometry = new THREE.BoxGeometry(100, 100, 100);
@@ -35,13 +38,6 @@ var mesh2 = new THREE.Mesh(geometry2, material);
 mesh2.position.z = -1000;
 mesh2.position.x = 100;
 scene.add(mesh2);
-
-var material2 = new THREE.MeshBasicMaterial({
-	color: 0xff0000,
-	transparent: true,
-	opacity: 1,
-	wireframe: true
-});
 
 var geometry3 = new THREE.PlaneGeometry(10000, 10000, 100, 100);
 var mesh3 = new THREE.Mesh(geometry3, material);
