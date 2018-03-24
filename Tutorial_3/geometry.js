@@ -16,14 +16,22 @@ scene.add(light);
 var light1 = new THREE.PointLight(0xffffff, 0.5);
 scene.add(light1);			
 
-var material = new THREE.MeshNormalMaterial({
-	color: 0xff0000,
-	transparent: true,
-	opacity: 1,
-	wireframe: true,
-	wireframeLinewidth: 5,
-	wireframeLinejoin: 'round',
-	wireframeLinecap: 'round'
+// var material = new THREE.MeshNormalMaterial({
+// 	color: 0xff0000,
+// 	transparent: true,
+// 	opacity: 1,
+// 	wireframe: true,
+// 	wireframeLinewidth: 5,
+// 	wireframeLinejoin: 'round',
+// 	wireframeLinecap: 'round'
+// });
+
+var material = new THREE.MeshPhongMaterial({
+	color: 0xF3FFE2,
+	specular: 0xffffff,
+	shininess: 30,
+	map: new THREE.TextureLoader().load('img/steel.jpg'),
+	normalMap: new THREE.TextureLoader().load('img/aluminum.jpg')
 });
 
 var geometry = new THREE.BoxGeometry(100, 100, 100);
@@ -31,7 +39,6 @@ var mesh = new THREE.Mesh(geometry, material);
 mesh.position.z = -1000;
 mesh.position.x = -100;
 scene.add(mesh);
-
 
 var geometry2 = new THREE.SphereGeometry(50, 20, 20);
 var mesh2 = new THREE.Mesh(geometry2, material);
